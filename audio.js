@@ -19,8 +19,8 @@ keydownEvent = e =>{
         playKey = pattern[i-12]+(octave+1)
       }
       console.log(playKey)
-      if(!presskey.includes(e.key)){
-        presskey.push(e.key)
+      if(!presskey.includes(playKey)){
+        presskey.push(playKey)
         synth.triggerAttack(playKey);
       }
       return false; 
