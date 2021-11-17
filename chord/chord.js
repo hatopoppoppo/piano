@@ -4,7 +4,7 @@ let octave = 4
 const keys = ["a","w","s","e","d","f","t","g","y","h","u","j","k","o","l","p",";",":","[","]"]
 let presskey = []
 window.onload = () =>{
-  synth = new Tone.Synth().toMaster();
+  synth = new Tone.PolySynth().toMaster();
   document.addEventListener('keydown', keydownEvent);
   document.addEventListener('keyup', keyupEvent);
 }
@@ -50,7 +50,7 @@ const keyupEvent = e =>{
       }
       const index = presskey.indexOf(playKey);
       presskey.splice(index, 1)
-      synth.triggerRelease();
+      synth.triggerRelease(playKey);
     }
   }
 	return false; 
