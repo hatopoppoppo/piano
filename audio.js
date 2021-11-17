@@ -3,6 +3,7 @@ const pattern = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
 let octave = 4
 const keys = ["a","w","s","e","d","f","t","g","y","h","u","j","k","o","l","p",";",":","[","]"]
 let presskey = []
+const keyer = document.getElementById("key")
 window.onload = () =>{
   synth = new Tone.Synth().toMaster();
   document.addEventListener('keydown', keydownEvent);
