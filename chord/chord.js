@@ -19,7 +19,6 @@ keydownEvent = e =>{
       else{
         playKey = pattern[i-12]+(octave+1)
       }
-      console.log(playKey)
       if(!presskey.includes(playKey)){
         presskey.push(playKey)
         synth.triggerAttack(playKey);
@@ -53,7 +52,6 @@ const keyupEvent = e =>{
       const index = presskey.indexOf(playKey);
       presskey.splice(index, 1)
       synth.triggerRelease(playKey);
-      console.log("外す " + playKey)
       keyer.innerHTML = presskey
     }
   }

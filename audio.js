@@ -18,10 +18,10 @@ keydownEvent = e =>{
       else{
         playKey = pattern[i-12]+(octave+1)
       }
-      console.log(playKey)
       if(!presskey.includes(playKey)){
         presskey.push(playKey)
         synth.triggerAttack(playKey);
+        keyer.innerHTML = presskey
       }
       return false; 
     }
@@ -51,6 +51,7 @@ const keyupEvent = e =>{
       const index = presskey.indexOf(playKey);
       presskey.splice(index, 1)
       synth.triggerRelease();
+      keyer.innerHTML = presskey
     }
   }
 	return false; 
