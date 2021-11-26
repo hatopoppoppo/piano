@@ -15,9 +15,11 @@ keydownEvent = e =>{
       let playKey
       if(i <= 11){
         playKey = pattern[i]+octave
+        document.getElementById(playKey.slice(0,-1)).classList.add("press")
       }
       else{
         playKey = pattern[i-12]+(octave+1)
+        document.getElementById(playKey.slice(0,-1)+"h").classList.add("press")
       }
       if(!presskey.includes(playKey)){
         presskey.push(playKey)
@@ -45,14 +47,16 @@ const keyupEvent = e =>{
       let playKey
       if(i <= 11){
         playKey = pattern[i]+octave
+        document.getElementById(playKey.slice(0,-1)).classList.remove("press")
       }
       else{
         playKey = pattern[i-12]+(octave+1)
+        document.getElementById(playKey.slice(0,-1) + "h").classList.remove("press")
       }
       const index = presskey.indexOf(playKey);
       presskey.splice(index, 1)
       synth.triggerRelease(playKey);
-      keyer.innerHTML = presskey
+      keyer.innerHTML = "　"+presskey
     }
   }
 	return false; 
